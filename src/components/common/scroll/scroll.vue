@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="rollTitle"><slot name="rollTitle"></slot></div>
-        
+
         <div class="rollSide" :style="{ height: rollHeight + 'px' }">
             <slot name="content"></slot>
         </div>
@@ -10,7 +10,7 @@
 
 <script>
     export default {
-        name: "scrollItem",
+        name: "scroll",
         components:{
 
         },
@@ -24,13 +24,15 @@
 
 <style scoped>
     .rollSide {
-         /*height: 510px;*/
         overflow-x: hidden;
         overflow-y: scroll;
         text-align: left;
     }
     .rollSide::-webkit-scrollbar {
         display: none;
+    }
+    .rollTitle{
+        text-align: center;
     }
 
 </style>

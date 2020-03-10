@@ -1,7 +1,7 @@
 <template>
-    <div class="tabControl">
+    <div class="tabControl" :style="{height: height+'px',width: width+'px'}">
       <div v-for="(item,index) in tabItem" class="item" :class="{active:index === currentIndex}" @click="itemClick(index)">
-        <span>{{item}}</span>
+        <div>{{item}}</div>
       </div>
     </div>
 </template>
@@ -15,7 +15,9 @@
                 default(){
                     return []
                 }
-            }
+            },
+            height:Number,
+            width:Number
         },
         data(){
             return{
@@ -35,26 +37,28 @@
   .tabControl{
     display: flex;
     text-align: center;
-    font-size: 16px;
-    height: 40px;
-    line-height: 40px;
-
-
+    font-size: 14px;
+    /*height: 30px;*/
+    line-height: 30px;
+    font-weight: lighter;
+    color: #bbb;
+    /*width: 200px;*/
   }
 
   .item{
     flex: 1;
   }
 
-  .item span{
-    padding: 5px;
-  }
 
   .active{
-    color: var(--color-high-text);
+    color: #0195f3;
   }
 
-  .active span{
-    border-bottom: var(--color-high-text) solid 4px;
+  .active div{
+    border-bottom:#0195f3 solid 1px;
   }
+
+   .item div{
+       cursor: pointer;
+    }
 </style>

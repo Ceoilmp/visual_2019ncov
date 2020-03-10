@@ -2,7 +2,7 @@
     <div class="frame">
         <el-row>
             <el-col :span="24"><div class="grid-content head">
-                <slot name = "head"></slot>
+                <slot name = "navHead"></slot>
             </div></el-col>
         </el-row>
         <el-row  :gutter = 6>
@@ -21,7 +21,7 @@
 
 <script>
     export default {
-        name: "test"
+        name: "mainFrame"
     }
 </script>
 
@@ -37,7 +37,7 @@
         /*margin-top: 10px;*/
     }
     .grid-content {
-        min-height: 50px;
-        background-color: #666;
+        min-height: 36px;
+        background-color: #222;
     }
 </style>

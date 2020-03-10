@@ -1,32 +1,62 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <mainFrame>
+      <navHead slot="navHead"></navHead>
+
+      <leftView slot="bodyLeft" :full-height="fullHeight"></leftView>
+      <map-view slot = "mapBox" :fullHeight = "fullHeight"></map-view>
+      <rightView slot="bodyRight" :full-height="fullHeight"></rightView>
+    </mainFrame>
   </div>
 </template>
 
+<script>
+  import mainFrame from 'components/common/mainFrame'
+  import navHead from "components/common/navHead/navHead";
+
+  import leftView from "views/leftView/leftView";
+  import mapView from "views/mapView/mapView";
+  import rightView from "views/rightView/rightView";
+
+  export default {
+    name: "app",
+    components:{
+      mainFrame,
+      navHead,
+      leftView,
+      mapView,
+      rightView
+    },
+    data(){
+      return{
+        fullHeight:Number,
+        fullWidth:Number
+      }
+    },
+    created(){
+      this.fullHeight = document.documentElement.clientHeight;
+      this.fullWidth = document.documentElement.clientWidth;
+      console.log(this.fullHeight);
+      console.log(this.fullWidth);
+    },
+    mounted() {
+      this.get_bodyHeight();
+    },
+    methods: {
+      get_bodyHeight() {
+        //动态获取浏览器高度
+        const that = this;
+        window.onresize = () => {
+          return (() => {
+            window.fullHeight = document.documentElement.clientHeight;
+            that.fullHeight = window.fullHeight;
+          })();
+        };
+      }
+    }
+  }
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  @import 'assets/css/base.css';
 </style>
