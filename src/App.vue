@@ -36,8 +36,8 @@
     created(){
       this.fullHeight = document.documentElement.clientHeight;
       this.fullWidth = document.documentElement.clientWidth;
-      console.log(this.fullHeight);
-      console.log(this.fullWidth);
+      // console.log(this.fullHeight);
+      // console.log(this.fullWidth);
     },
     mounted() {
       this.get_bodyHeight();

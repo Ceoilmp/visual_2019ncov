@@ -5,11 +5,16 @@ Vue.use(VueRouter)
 
 const worldMap = () => import('views/mapView/mapRouter/worldMap.vue')
 const chinaMap = () => import('views/mapView/mapRouter/chinaMap.vue')
+const gaodeMap = () => import('views/mapView/mapRouter/gaodeMap.vue')
 
 const routes = [
   {
     path:'',
-    redirect:'/worldMap'
+    redirect:'/gaodeMap'
+  },
+  {
+    path:'/gaodeMap',
+    component:gaodeMap
   },
   {
     path:'/worldMap',

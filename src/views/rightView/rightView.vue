@@ -70,7 +70,7 @@
         },
         created() {
             this.testData = getTestData().cities
-            console.log(this.testData);
+            // console.log(this.testData);
         },
         methods:{
             tabClick(index){

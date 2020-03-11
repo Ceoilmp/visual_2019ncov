@@ -49,7 +49,7 @@
         },
         created() {
             this.testData = getTestData().cities
-            console.log(this.testData);
+            // console.log(this.testData);
             this.updateTime = '2020/3/8 11.18AM'
         }
     }
